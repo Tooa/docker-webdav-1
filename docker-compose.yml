@@ -2,7 +2,9 @@ version: '3.7'
 
 services:
   webdav-nginx:
+    container_name: webdav
     build: .
+    image: rpi-nginx-webdav:latest
     ports:
       - 8432:8080
     volumes:
@@ -10,5 +12,5 @@ services:
     environment:
       - WEBDAV_USERNAME=${USERNAME:-user}
       - WEBDAV_PASSWORD=${PASSWORD:-pw}
-      - UID=$UID
+      - UID=${UID}
     restart: unless-stopped
