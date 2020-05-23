@@ -1,0 +1,12 @@
+version: '2'
+services:
+  webdav-nginx:
+    build: .
+    ports:
+      - 8432:8080
+    volumes:
+      - ./media:/media
+    environment:
+      WEBDAV_USERNAME: pw
+      WEBDAV_PASSWORD: pw
+      UID: "$UID"
